@@ -1,6 +1,8 @@
 from django.conf.urls import patterns, url, include
 
 ajax_patterns = patterns('apps.stack.ajax',
+    url(r'^node/save$', 'save_node', name='ajax-save-node'),
+    url(r'^project/save$', 'save_project', name='ajax-save-project'),
     url(r'^project$', 'get_project', name='ajax-get-project'),
     url(r'^stack/name$', 'save_stack_name', name='ajax-save-stack-name'),
     url(r'^stack$', 'get_stack', name='ajax-get-stack'),

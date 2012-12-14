@@ -11,15 +11,17 @@ LINK_CHOICES = (
     ('ro', 'Root')
 )
 
-class Licenses(models.Model):
+class License(models.Model):
     name = models.CharField(max_length=255)
 
 class Project(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=255)
     github = models.URLField(max_length=255, null=True, blank=True)
-    license = models.ManyToManyField(Licenses)
+    logo = models.URLField(max_length=255, null=True, blank=True)
+    license = models.ManyToManyField(License)
     is_private = models.BooleanField(default=False)
+    is_stack_project = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name

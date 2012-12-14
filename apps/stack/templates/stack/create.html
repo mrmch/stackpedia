@@ -70,45 +70,118 @@
         </div>
         <div class="modal-body">
 
-            <div class="control-group">
-                <label class="control-label" for="eGithub">Github</label>
+            <div class="form">
+                <div class="control-group">
+                    <label class="control-label" for="node_project_select">Select Project</label>
 
-                <div class="controls">
-                    <input type="text" id="eGithub" name="eGithub" placeholder="project github url">
+                    <div class="controls">
+                        <select name="node_project_select" id="node_project_select">
+                            {% for project in projects_raw %}
+                                <option value="{{ project.pk }}">
+                                    {{ project.name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+
+                        <a href="#" id="addProject" class="btn btn-small" data-dismiss="modal">New Project</a>
+                    </div>
+
+                </div>
+
+
+                <div class="control-group">
+                    <label class="control-label" for="addDep">Add Dependency</label>
+
+                    <div class="controls">
+                        <select name="node_dep_select" id="node_dep_select"></select>
+
+                        <select name="addDepLinkType" id="addDepLinkType">
+                            <option value="1">Static Linking</option>
+                            <option value="2">Dynamic Linking</option>
+                        </select>
+
+                        <a href="#" id="eAddDep" class="btn">Add</a>
+                    </div>
+                </div>
+
+
+                <div id="eDependencies">
+                    <h3>Dependencies</h3>
+
+                    <ul>
+                        <li>
+                            <a href="#" id="removeDep"><i class="icon icon-remove"></i></a> dep a
+                        </li>
+
+                    </ul>
                 </div>
             </div>
 
-            <div class="control-group">
-                <label class="control-label" for="addDep">Add Dependency</label>
-
-                <div class="controls">
-                    <input type="text" id="addDep" name="addDep" placeholder="dependency name">
-
-                    <select name="addDepLinkType" id="addDepLinkType">
-                        <option value="1">Static Linking</option>
-                        <option value="2">Dynamic Linking</option>
-                    </select>
-
-                    <a href="#" id="eAddDep" class="btn">Add</a>
-                </div>
+            <div class="loading">
+                <img src="{{ STATIC_URL }}img/loading.gif">
             </div>
-
-
-            <div id="eDependencies">
-                <h3>Dependencies</h3>
-
-                <ul>
-                    <li>
-                        <a href="#" id="removeDep"><i class="icon icon-remove"></i></a> dep a
-                    </li>
-
-                </ul>
-            </div>
-
         </div>
         <div class="modal-footer">
             <a data-dismiss="modal" href="#" class="btn">Close</a>
-            <a data-dismiss="modal" id="edit_save" href="#" class="btn btn-primary">Save changes</a>
+            <a id="edit_save" href="#" class="btn btn-primary">Save changes</a>
+        </div>
+    </div>
+
+    <div class="modal hide fade" id="edit_project_modal" data-project="">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Edit Project</h3>
+        </div>
+        <div class="modal-body">
+
+            <div class="form">
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label">Project name:
+                            <input type="text" name="edit_project_name" id="edit_project_name" value="">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label">Github url:
+                            <input type="text" name="edit_project_github" id="edit_project_github" value="">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label">Logo URL:
+                            <input type="text" name="edit_project_github" id="edit_project_github" value="">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <div class="controls">
+                        <label class="control-label">License:
+                            <select id="edit_project_license" name="edit_project_license" multiple="multiple">
+                                {% for license in licenses %}
+                                    <option value="{{ license.pk }}">
+                                        {{ license.name }}
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading">
+                <img src="{{ STATIC_URL }}img/loading.gif">
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <a data-dismiss="modal" href="#" class="btn">Close</a>
+            <a id="save_project" href="#" class="btn btn-primary">Save Project</a>
         </div>
     </div>
 {% endblock %}
@@ -116,35 +189,189 @@
 {% block extra_js %}
     // define globals
     var nodes = {{ nodes_dump|safe }},
-        stack_id = '{{ stack.pk }}',
-        project_id = '{{ project.pk }}',
+        projects = {{ projects|safe }},
+        project = {{ project|safe }}[0],
+        stack = {{ stack|safe }}[0],
         root_id = '{{ root.pk }}';
 
     var w = 500,
         h = 300,
-        canvas, base, stack;
+        canvas, base, d3nodes;
 
-    var open_edit_modal = function(project, i) {
-        $('#edit_modal')
-            .data('project', i)
-            .modal('show');
-        $('#eName').text(project.name);
-        $('#eGithub').text(project.github);
+    var get_project = function (pk) {
+        var l = projects.filter(function (p) { return p.pk == pk; });
+        
+        return l.length > 0 ? l[0] : null;
+    };
+
+    var open_edit_modal = function (node, i) {
+        var temp;
+        if (node.data.project == project.pk) {
+            // this is the head "stack node"
+            temp = project;
+        } else {
+            var temp = get_project(node.data.project);
+        }
+
+
+        // populate the projects select
+        $('#node_project_select').empty();
+
+        $.each(projects, function (i, o) {
+            console.log(o);
+            var el = $(document.createElement('option')), copy;
+            el.val(o.pk);
+            el.text(o.fields.name);
+            copy = el.clone();
+            
+
+            if (o.pk == node.data.project) {
+                el.attr('selected', 'selected');
+            }
+
+            $('#node_project_select').append(el);
+            $('#node_dep_select').append(copy);
+        });
+
+
         var dep_list = $('#eDependencies ul');
         dep_list.empty();
 
         console.log(project);
 
-        if ('children' in project.data) {
-            $.each(project.data.children, function (i, d) {
+        if ('children' in node) {
+            $.each(node.children, function (i, d) {
                 append_dep(dep_list, d);
             });
         }
+
+        var modal = $('#edit_modal');
+        modal.find('div.form').show();
+        modal.find('div.loading').hide();
+        modal.data('project', node.data.project)
+            .data('node', node.id)
+            .data('node_index', i)
+            .modal('show');
+    };
+
+    var open_edit_project_modal = function (p_id) {
+        // open the project edit modal, with default data if we are creating
+        // a new project
+        if (typeof p_id === 'undefined') p_id = 0;
+        var proj;
+
+        if (p_id === 0) {
+            // new project, create a stub
+            proj = {
+                "pk": 0,
+                "fields": {
+                    "name": "New Project",
+                    "github": "",
+                    "logo": "",
+                    "license": [],
+                    "is_private": false,
+                    "is_stack_project": false
+                }
+            };
+        } else {
+            proj = projects.filter(function(p) { return p.pk == p_id; })[0];
+        }
+
+        $("input[name='edit_project_name']").val(proj.fields.name);
+        $("input[name='edit_project_github']").val(proj.fields.github);
+        $("input[name='edit_project_logo']").val(proj.fields.logo);
+
+        $('#edit_project_license option').removeAttr('selected');
+        $.each(proj.fields.license, function (o, i) {
+            $('#edit_project_license option[value=' + o + ']').attr('selected', 'selected');
+        });
+
+        $('#edit_project_modal div.form').show();
+        $('#edit_project_modal div.loading').hide();
+
+        $('#edit_project_modal')
+            .data('project', p_id)
+            .modal('show');
+    };
+
+    var save_project_modal = function () {
+        var modal = $('#edit_project_modal');
+        var data = {
+            "project_id": modal.data('project'),
+            "name": $("input[name='edit_project_name']").val(), 
+            "github": $("input[name='edit_project_github']").val(), 
+            "logo": $("input[name='edit_project_logo']").val(), 
+            "license": $('#edit_project_license option').val() 
+        };
+
+        modal.find('div.form').fadeOut('fast', function () {
+            modal.find('div.loading').slideDown('fast');
+        });
+
+        $.getJSON('{% url ajax-save-project %}', data, function (response) {
+            if ('pk' in response[0]) {
+                // save the project back to local store
+                var response_project = response[0];
+                var local = get_project(response_project.pk),
+                    index = projects.indexOf(local);
+
+                if (index == -1) {
+                    projects.push(response_project);
+                } else {
+                    projects[index] = response_project;
+                }
+            } else {
+                console.log('error', response);
+            }
+
+            modal.modal('hide');
+        });
+    };
+
+    var save_node_modal = function () {
+        var modal = $('#edit_modal');
+        var children = [];
+
+        $.each(modal.find('li.dep'), function (i, o) {
+            children.append(o.data('project'));
+        });
+
+        var data = {
+            "node_id": modal.data('node'),
+            "root_id": root_id,
+            "project_id": modal.find('select[name=node_project_select]').val(),
+            "stack_id": stack.pk,
+            "children": children
+        };
+
+        modal.find('div.form').fadeOut('fast', function () {
+            modal.find('div.loading').slideDown('fast');
+        });
+
+        $.getJSON('{% url ajax-save-node %}', data, function (response) {
+            if ('pk' in response[0]) {
+                // save the project back to local store
+                var response_project = response[0];
+                var local = get_project(response_project.pk),
+                    index = projects.indexOf(local);
+
+                if (index == -1) {
+                    projects.push(response_project);
+                } else {
+                    projects[index] = response_project;
+                }
+            } else {
+                console.log('error', response);
+            }
+
+            modal.modal('hide');
+        });
     };
 
     var append_dep = function (list, dep) {
         var li = $(document.createElement('li')), html = '';
-        html = '<a href="#" class="removeDep"><i class="icon icon-remove"></i></a> ' + dep.name + '(<em>' + dep.link_type + '</em>)';
+        html = '<a href="#" class="removeDep"><i class="icon icon-remove"></i></a> ' + dep.project.fields.name + '(<em>' + dep.link_type + '</em>)';
+        li.data('project', dep.project.pk);
         li.html(html);
         list.append(li);
     };
@@ -155,7 +382,7 @@
     canvas.attr('width', w)
         .attr('height', h);
 
-    stack = canvas.selectAll('circle')
+    d3nodes = canvas.selectAll('circle')
         .data(nodes)
         .enter()
         .append('circle')
@@ -164,15 +391,15 @@
         .attr('r', 50)
         .attr('fill', 'teal');
 
-    stack.on('mouseover', function () {
+    d3nodes.on('mouseover', function () {
         d3.select(this).attr('fill', 'black');
     });
 
-    stack.on('mouseout', function () {
+    d3nodes.on('mouseout', function () {
         d3.select(this).attr('fill', 'teal');
     });
 
-    stack.on('click', function (d, i) {
+    d3nodes.on('click', function (d, i) {
         // edit this package
         open_edit_modal(d, i);
         //console.log('edit', d, i);
@@ -191,9 +418,9 @@
     // jquery binds
     $('#eAddDep').click(function () {
         var dep_list = $('#eDependencies ul');
-        var project = $('#edit_modal').data('project');
+        var project = get_project($('#node_dep_select').val());
         var dep = {
-            "name": $('#addDep').val(),
+            "project": project,
             "link_type": $('#addDepLinkType').val()
         };
 
@@ -216,6 +443,18 @@
         });
     });
 
+    $('#addProject').click(function () {
+        open_edit_project_modal();
+    });
+
+    $('#edit_save').click(function () {
+        save_node_modal();
+    });
+
+    $('#save_project').click(function () {
+        save_project_modal();
+    });
+
     /*
     base = canvas.append('circle');
     base.attr('cx', w/2)
@@ -224,6 +463,5 @@
         .attr('fill', 'teal')
         .text("Set name");
         */
-
 {% endblock %}
 
