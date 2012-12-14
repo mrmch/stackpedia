@@ -3,4 +3,5 @@ PIL==1.1.7
 Werkzeug==0.8.3
 distribute==0.6.28
 django-extensions==1.0.1
+django-treebeard==1.61
 wsgiref==0.1.2
