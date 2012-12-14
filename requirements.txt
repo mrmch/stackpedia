@@ -1,0 +1,6 @@
+Django==1.4.2
+PIL==1.1.7
+Werkzeug==0.8.3
+distribute==0.6.28
+django-extensions==1.0.1
+wsgiref==0.1.2

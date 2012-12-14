@@ -1,0 +1,12 @@
+{% if request.user.is_authenticated %}
+    <p class="navbar-text pull-right">
+        Logged in as <a href="#" class="navbar-link">{{ request.user.name }}</a>
+    </p>
+{% else %}
+    <form class="navbar-form pull-right">
+        <input class="span2" type="text" placeholder="Email">
+        <input class="span2" type="password" placeholder="Password">
+        <button type="submit" class="btn">Sign in</button>
+    </form>
+{% endif %}
+
