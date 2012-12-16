@@ -6,9 +6,7 @@ from treebeard.mp_tree import MP_Node
 LINK_CHOICES = (
     ('dy', 'Dynamic Linking'),
     ('st', 'Static Linking'),
-    ('ot', 'Other'),
-    ('na', 'None'),
-    ('ro', 'Root')
+    ('ot', 'Other')
 )
 
 class License(models.Model):
@@ -28,7 +26,7 @@ class Project(models.Model):
 
 class Stack(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
     #owner = models.ForeignKey(User, related_name='stacks')
 
     def __unicode__(self):

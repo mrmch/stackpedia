@@ -56,7 +56,7 @@
                                 <a href="/explore">explore</a>
                             </li>
                             <li class="{% if page = "create" %}active{% endif %}">
-                                <a href="/create">create</a>
+                                <a href="#create">create</a>
                             </li>
                             <li class="{% if page = "my_stacks" %}active{% endif %}">
                                 <a href="/stacks">my stacks</a>
@@ -81,6 +81,66 @@
             </footer>
         </div><!--/.fluid-container-->
 
+        <div class="modal hide fade" id="create_stack_modal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>Create a stack</h3>
+            </div>
+            <div class="modal-body">
+
+                <div class="form">
+                    <form method="get" action="{% url create %}">
+                        <div class="alert alert-error"></div>
+
+                        <div class="control-group">
+                            <h3>Stack Name</h3>
+                            <div class="controls">
+                                <input type="text" name="c_s_name" id="c_s_name" value="">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <h4>Got github?</h4>
+                            <div class="controls">
+                                <input type="text" name="c_s_github" id="c_s_github" value="">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <h4>Add your logo</h4>
+                            <div class="controls">
+                                <input type="text" name="c_s_logo" id="c_s_logo" value="">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+                                <label class="control-label">What license(s) do you use?
+                                    <select id="c_s_license" name="c_s_license" multiple="multiple">
+                                        {% for license in licenses %}
+                                            <option value="{{ license.pk }}">
+                                                {{ license.name }}
+                                            </option>
+                                        {% endfor %}
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="loading">
+                    <img src="{{ STATIC_URL }}img/loading.gif">
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a data-dismiss="modal" href="#" class="btn">Close</a>
+                <a id="create_stack" href="#" class="btn btn-primary">Create Stack!</a>
+            </div>
+        </div>
+
         <script src="{{ STATIC_URL }}js/json2.js"></script>
         <script src="{{ STATIC_URL }}js/underscore-min.js"></script>
         <script src="{{ STATIC_URL }}js/backbone-min.js"></script>
@@ -94,6 +154,29 @@
             {% block extra_js %}{% endblock %}
 
             $(function () {
+                $("a[href='#create']").click(function () {
+                    $('#create_stack_modal').find('.loading').hide();
+                    $('#create_stack_modal').modal('show');
+                });
+
+                $("#create_stack").click(function () {
+                    var modal = $('#create_stack_modal');
+                    modal.find('.form').hide();
+                    modal.find('.loading').slideDown();
+
+                    $.getJSON('{% url ajax-create-stack %}?' + $('#create_stack_modal').find('form').serialize(),
+                        function (resp) {
+                            if (resp.success) {
+                                window.location = resp.data.redirect;
+                            } else {
+                                modal.find('.alert').html(resp.message);
+                                modal.find('.loading').hide();
+                                modal.find('.form').slideDown();
+                            }
+                        }
+                    );
+                });
+
                 {% block document_ready %}{% endblock %}
             });
         </script>

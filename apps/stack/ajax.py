@@ -1,10 +1,10 @@
 from django.http import HttpResponse
+from django.core.urlresolvers import reverse
 from django.utils.simplejson import dumps
 from django.core.serializers.json import DjangoJSONEncoder
 from django.core import serializers
 
 from models import Project, License, Stack, Node
-        
 
 def ajax_success(request, msg=None, data=None, model=False):
     resp = {
@@ -71,6 +71,47 @@ def save_stack_name(request):
 
     return ajax_success(request)
 
+def create_stack(request):
+    try:
+        name = request.GET.get('c_s_name')
+        github = request.GET.get('c_s_github')
+        logo = request.GET.get('c_s_logo')
+        licenses = request.GET.getlist('c_s_license')
+    except Exception as e:
+        return ajax_failure(request, msg=str(e))
+
+    try:
+        stack = Stack.objects.get(name=name)
+        return ajax_failure(request, msg="A stack with that name already exists!")
+    except Exception as e:
+        pass
+
+    try:
+        stack = Stack.objects.create(name=name)
+        project = Project.objects.create(name=name,
+            github=github,
+            logo=logo,
+            is_private=True,
+            is_stack_project=True)
+        root = Node.add_root(project=project, stack=stack)
+        stack.save()
+        project.save()
+        root.save()
+
+        for license in licenses:
+            l = License.objects.get(name=license)
+            project.license.add(l)
+
+        project.save()
+    except Exception as e:
+        return ajax_failure(request, msg=str(e))
+
+    data = {
+        'redirect': reverse('edit-stack', args=(stack.pk,))        
+    }
+
+    return ajax_success(request, data=data)
+
 def save_project(request):
     try:
         project = Project.objects.get(pk=request.GET.get('project_id'))
@@ -102,8 +143,19 @@ def save_node(request):
     try:
         node.project = project
         node.stack = stack
-        node.link_type = request.GET.get('link_type')
+        #node.link_type = request.GET.get('link_type')
         node.save()
+    except Exception as e:
+        return ajax_failure(request, msg=str(e))
+
+    try:
+        children = request.GET.getlist('children')
+        for child in children:
+            child_node = node.add_child(
+                stack=stack,
+                project=child.project,
+                link_type=child.link_type
+            )
     except Exception as e:
         return ajax_failure(request, msg=str(e))
 
