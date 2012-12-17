@@ -34,7 +34,7 @@
                 <select id="edit_project_license" name="edit_project_license" multiple="multiple">
                     {% for license in licenses %}
                         <option value="{{ license.pk }}">
-                            {{ license.name }}
+                            {{ license.odc_id }}
                         </option>
                     {% endfor %}
                 </select>

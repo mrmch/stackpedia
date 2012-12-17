@@ -107,7 +107,7 @@ def create_stack(request):
         root.save()
 
         for license in licenses:
-            l = License.objects.get(name=license)
+            l = License.objects.get(odc_id=license)
             project.license.add(l)
 
         project.save()

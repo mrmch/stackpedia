@@ -13,6 +13,9 @@ LINK_CHOICES = (
 )
 
 class License(models.Model):
+    class Meta:
+        ordering = ['odc_id',]
+
     odc_id = models.CharField(max_length=300)
     domain_content = models.CharField(max_length=300)
     domain_data = models.CharField(max_length=300)
@@ -23,6 +26,11 @@ class License(models.Model):
     title = models.CharField(max_length=300)
     url = models.CharField(max_length=300)
 
+class Contributor(models.Model):
+    login = models.CharField(max_length=255)
+    github_id = models.CharField(max_length=255)
+    avatar_url = models.URLField(max_length=500)
+
 class Project(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=255)
@@ -31,9 +39,16 @@ class Project(models.Model):
     license = models.ManyToManyField(License)
     is_private = models.BooleanField(default=False)
     is_stack_project = models.BooleanField(default=False)
+    contributors = models.ManyToManyField(Contributor, related_name='projects')
 
     def __unicode__(self):
         return self.name
+
+    def get_contributors(self):
+        if self.github != "":
+            url = 'http://api.github.com/repos/%s/collaborators' % (
+                self.github
+            )
 
 class Stack(models.Model):
     created = models.DateTimeField(auto_now_add=True)

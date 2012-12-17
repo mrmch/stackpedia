@@ -1,0 +1,52 @@
+{% extends "stack/modals/base.html" %}
+
+{% block modal_id %}create_stack_modal{% endblock %}
+
+{% block modal_title %}Create a stack{% endblock %}
+
+{% block modal_form %}
+    <form method="get" action="{% url create %}">
+        <div class="alert alert-error"></div>
+
+        <div class="control-group">
+            <h3>Stack Name</h3>
+            <div class="controls">
+                <input type="text" name="c_s_name" id="c_s_name" value="">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <h4>Got github?</h4>
+            <em>Please enter ONLY <b>username/project_name</b>!</em>
+            <div class="controls">
+                <input type="text" name="c_s_github" id="c_s_github" value="" placeholder="username/project">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <h4>Add your logo</h4>
+            <div class="controls">
+                <input type="text" name="c_s_logo" id="c_s_logo" value="">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <div class="controls">
+                <label class="control-label">What license(s) do you use?
+                    <select id="c_s_license" name="c_s_license" multiple="multiple">
+                        {% for license in licenses %}
+                            <option value="{{ license.pk }}">
+                                {{ license.odc_id }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </label>
+            </div>
+        </div>
+
+    </form>
+{% endblock %}
+
+{% block modal_save_id %}create_stack{% endblock %}
+
+{% block modal_save_title %}Create Stack!{% endblock %}

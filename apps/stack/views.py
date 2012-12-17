@@ -8,10 +8,13 @@ from models import Project,Stack, Node, License, LINK_CHOICES
 def home(request, template='stack/home.html'):
     """default home request"""
 
-    return render(request, template, {})
+    return render(request, template, {'licenses': License.objects.all()})
 
 def explore(request, template='stack/explore.html'):
-    return render(request, template, {'page': 'explore'})
+    return render(request, template, {
+        'page': 'explore',
+        'licenses': License.objects.all()
+    })
 
 def create(request, template='stack/create.html'):
     stack = Stack.objects.create(name='Your Stack')
