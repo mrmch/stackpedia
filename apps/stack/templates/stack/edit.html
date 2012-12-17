@@ -67,12 +67,16 @@
                 <li>
                     <a href="#preview">Preview</a>
                 </li>
+                
+                <li>
+                    <a href="#addProject">Add Project</a>
+                </li>
 
                 <li class="dropdown">
                     <a href="#"
                         data-toggle="dropdown"
                         class="dropdown-toggle"
-                        >asdf <b class="caret"></b>
+                        >Share <b class="caret"></b>
                     </a>
 
                     <ul class="dropdown-menu">
@@ -469,6 +473,49 @@
 
         parent_el.prepend(el);
     };
+
+    var show_preview = function () {
+        cluster = d3.layout.cluster()
+            .size([h, w]);
+
+        diagonal = d3.svg.diagonal()
+            .projection(function(d) { return [d.x, d.y]; });
+
+        svg = d3.select('#canvas')
+            .append('svg')
+            .attr('width', w)
+            .attr('height', h)
+            .append('g')
+                .attr('transform', 'translate(40,0)');
+
+        nodes = cluster.nodes(nodes_data);
+        links = cluster.links(nodes);
+
+        link = svg.selectAll('.link')
+            .data(links)
+            .enter().append('path')
+                .attr('class', 'link')
+                .attr('d', diagonal);
+
+        node = svg.selectAll('.node')
+            .data(nodes)
+            .enter().append('g')
+                .attr('class', 'node')
+                .attr('transform', function (d) {
+                    return 'translate(' + d.x + ',' + d.y + ')'; 
+                });
+
+        node.append('circle')
+            .attr('r', 50)
+            .attr('fill', node_colour);
+
+        node.append('text')
+            .attr('dx', function(d) {
+                return d.children ? -8 : 8; 
+            })
+            .attr('dy', 3)
+            .text(node_name);
+    };
 {% endblock %}
 
 {% block document_ready %}
@@ -481,50 +528,10 @@
     });
 
 
-    cluster = d3.layout.cluster()
-        .size([h, w]);
-
-    diagonal = d3.svg.diagonal()
-        .projection(function(d) { return [d.x, d.y]; });
-
-    svg = d3.select('#canvas')
-        .append('svg')
-        .attr('width', w)
-        .attr('height', h)
-        .append('g')
-            .attr('transform', 'translate(40,0)');
-
-    nodes = cluster.nodes(nodes_data);
-    links = cluster.links(nodes);
-
-    link = svg.selectAll('.link')
-        .data(links)
-        .enter().append('path')
-            .attr('class', 'link')
-            .attr('d', diagonal);
-
-    node = svg.selectAll('.node')
-        .data(nodes)
-        .enter().append('g')
-            .attr('class', 'node')
-            .attr('transform', function (d) {
-                return 'translate(' + d.x + ',' + d.y + ')'; 
-            });
-
-    node.append('circle')
-        .attr('r', 50)
-        .attr('fill', node_colour);
-
-    node.append('text')
-        .attr('dx', function(d) {
-            return d.children ? -8 : 8; 
-        })
-        .attr('dy', 3)
-        .text(node_name);
 
 
     // node events
-
+    /*
     node.on('mouseover', function () {
         d3.select(this)
             .select('circle')
@@ -541,8 +548,8 @@
         // edit this package
         open_edit_modal(d, i);
         //console.log('edit', d, i);
-
     });
+    */
 
     // jquery binds
     $('#eAddDep').click(function () {
@@ -554,7 +561,6 @@
         };
 
         append_dep(dep_list, dep); 
-
     });
 
     $('.removeDep').live('click', function () {
@@ -563,7 +569,7 @@
         
     });
 
-    $('#addProject').click(function () {
+    $('a[href="#addProject"]').click(function () {
         open_edit_project_modal();
     });
 
