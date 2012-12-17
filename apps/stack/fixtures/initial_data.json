@@ -1,0 +1,1532 @@
+[
+    {
+        "pk": 1, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "geo-no-fee-unrestricted", 
+            "title": "No Fee Unrestricted Use License Agreement For Government Geographic Data (Canada)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www4.agr.gc.ca/AAFC-AAC/display-afficher.do?id=1226945498401&lang=eng", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "met-office-cp", 
+            "title": "Met Office UK Climate Projections Licence Agreement", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.metoffice.gov.uk/climatechange/science/monitoring/ukcp09/UKCIP08_license_agreement_130709.pdf", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "gpl-2.0", 
+            "title": "GNU General Public License (GPL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/gpl-2.0.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ukclickusepsi", 
+            "title": "UK Click Use PSI", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "tcl", 
+            "title": "Talis Community License", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opendefinition.org/licenses/tcl", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "other-closed", 
+            "title": "Other (Not Open)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "bsl1.0", 
+            "title": "Boost Software License (BSL1.0)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/bsl1.0.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ipafont", 
+            "title": "IPA Font License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/ipafont.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ver2_eiffel", 
+            "title": "Eiffel Forum License V2.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/ver2_eiffel.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "lgpl-3.0", 
+            "title": "GNU Library or \"Lesser\" General Public License version 3.0 (LGPLv3)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/lgpl-3.0.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "against-drm", 
+            "title": "Against DRM", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opendefinition.org/licenses/against-drm", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "multics", 
+            "title": "Multics License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/multics.txt", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "eudatagrid", 
+            "title": "EU DataGrid Software License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/eudatagrid.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "agpl-v3", 
+            "title": "Affero GNU Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/agpl-v3.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "real", 
+            "title": "RealNetworks Public Source License V1.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/real.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "geogratis", 
+            "title": "Geogratis Licence Agreement", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://geogratis.cgdi.gc.ca/geogratis/en/licence.jsp", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "attribution", 
+            "title": "Attribution Assurance Licenses", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/attribution.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "nokia", 
+            "title": "Nokia Open Source License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/nokia.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "apsl-2.0", 
+            "title": "Apple Public Source License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/apsl-2.0.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "lucent-plan9", 
+            "title": "Lucent Public License (Plan9)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "hesa-withrights", 
+            "title": "Higher Education Statistics Agency Copyright with data.gov.uk rights", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "fal", 
+            "title": "Free Art License", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opendefinition.org/licenses/fal", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "other-at", 
+            "title": "Other (Attribution)", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ntp-license", 
+            "title": "NTP License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/ntp-license.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "cuaoffice", 
+            "title": "CUA Office Public License Version 1.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/cuaoffice.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "isc-license", 
+            "title": "ISC License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/isc-license.txt", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "intel-osl", 
+            "title": "Intel Open Source License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ecl2", 
+            "title": "Educational Community License, Version 2.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/ecl2.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "opengroup", 
+            "title": "Open Group Test Suite License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/opengroup.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "lucent1.02", 
+            "title": "Lucent Public License Version 1.02", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/lucent1.02.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "cc-nc", 
+            "title": "Creative Commons Non-Commercial (Any)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://creativecommons.org/licenses/by-nc/2.0/", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "fair", 
+            "title": "Fair License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/fair.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ms-rl", 
+            "title": "Microsoft Reciprocal License (Ms-RL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/ms-rl.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "osl-3.0", 
+            "title": "Open Software License 3.0 (OSL 3.0)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/osl-3.0.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "gpl-3.0", 
+            "title": "GNU General Public License version 3.0 (GPLv3)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/gpl-3.0.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ricohpl", 
+            "title": "Ricoh Source Code Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/ricohpl.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "odc-by", 
+            "title": "Open Data Commons Attribution License", 
+            "domain_data": "True", 
+            "is_okd_compliant": true, 
+            "domain_content": "False", 
+            "url": "http://www.opendefinition.org/licenses/odc-by", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "motosoto", 
+            "title": "Motosoto License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/motosoto.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "qtpl", 
+            "title": "Qt Public License (QPL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/qtpl.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "eclipse-1.0", 
+            "title": "Eclipse Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/eclipse-1.0.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "pythonpl", 
+            "title": "Python license", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/pythonpl.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "other-open", 
+            "title": "Other (Open)", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "dsl", 
+            "title": "Design Science License", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opendefinition.org/licenses/dsl", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ukpsi", 
+            "title": "UK PSI Public Sector Information", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opendefinition.org/licenses/ukpsi", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "apache2.0", 
+            "title": "Apache License, 2.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/apache2.0.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "uoi-ncsa", 
+            "title": "University of Illinois/NCSA Open Source License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/UoI-NCSA.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "oclc2", 
+            "title": "OCLC Research Public License 2.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/oclc2.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "mozilla1.1", 
+            "title": "Mozilla Public License 1.1 (MPL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/mozilla1.1.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "odc-pddl", 
+            "title": "Open Data Commons Public Domain Dedication and Licence (PDDL)", 
+            "domain_data": "True", 
+            "is_okd_compliant": true, 
+            "domain_content": "False", 
+            "url": "http://www.opendefinition.org/licenses/odc-pddl", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "canada-crown", 
+            "title": "Canadian Crown Copyright", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "xnet", 
+            "title": "X.Net License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/xnet.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "apache", 
+            "title": "Apache Software License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "pythonsoftfoundation", 
+            "title": "Python Software Foundation License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/PythonSoftFoundation.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "postgresql", 
+            "title": "The PostgreSQL License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/postgresql", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "cc-by-sa", 
+            "title": "Creative Commons Attribution Share-Alike", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opendefinition.org/licenses/cc-by-sa", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 56, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "other-pd", 
+            "title": "Other (Public Domain)", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 57, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ca-tosl1.1", 
+            "title": "Computer Associates Trusted Open Source License 1.1", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/ca-tosl1.1.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 58, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "rpl1.5", 
+            "title": "Reciprocal Public License 1.5 (RPL1.5)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/rpl1.5.txt", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 59, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "sleepycat", 
+            "title": "Sleepycat License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/sleepycat.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 60, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ms-pl", 
+            "title": "Microsoft Public License (Ms-PL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/ms-pl.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 61, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "nasa1.3", 
+            "title": "NASA Open Source Agreement 1.3", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/nasa1.3.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 62, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "naumen", 
+            "title": "Naumen Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/naumen.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 63, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "afl-3.0", 
+            "title": "Academic Free License 3.0 (AFL 3.0)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/afl-3.0.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 64, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "uk-ogl", 
+            "title": "UK Open Government Licence (OGL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://reference.data.gov.uk/id/open-government-licence", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 65, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "cddl1", 
+            "title": "Common Development and Distribution License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/cddl1.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 66, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "w3c", 
+            "title": "W3C License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/W3C.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 67, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "zpl", 
+            "title": "Zope Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/zpl.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 68, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "dli-model-use", 
+            "title": "Statistics Canada: Data Liberation Initiative (DLI) - Model Data Use Licence", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 69, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "notspecified", 
+            "title": "License Not Specified", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 70, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "nosl3.0", 
+            "title": "Non-Profit Open Software License 3.0 (Non-Profit OSL 3.0)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/NOSL3.0.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 71, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "openfont", 
+            "title": "Open Font License 1.1 (OFL 1.1)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/openfont.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 72, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "mozilla", 
+            "title": "Mozilla Public License 1.0 (MPL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 73, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "zlib-license", 
+            "title": "zlib/libpng license", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/zlib-license.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 74, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "mitre", 
+            "title": "MITRE Collaborative Virtual Workspace License (CVW License)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 75, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "frameworx", 
+            "title": "Frameworx License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/frameworx.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 76, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "localauth-withrights", 
+            "title": "Local Authority Copyright with data.gov.uk rights", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 77, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "mit-license", 
+            "title": "MIT license", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/mit-license.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 78, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "entessa", 
+            "title": "Entessa Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/entessa.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 79, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "vovidapl", 
+            "title": "Vovida Software License v. 1.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/vovidapl.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 80, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "wxwindows", 
+            "title": "wxWindows Library License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/wxwindows.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 81, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "lgpl-2.1", 
+            "title": "GNU Library or \"Lesser\" General Public License (LGPL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/lgpl-2.1.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 82, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "gfdl", 
+            "title": "GNU Free Documentation License", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opendefinition.org/licenses/gfdl", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 83, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "jabber-osl", 
+            "title": "Jabber Open Source License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 84, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "cc-by", 
+            "title": "Creative Commons Attribution", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opendefinition.org/licenses/cc-by", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 85, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "odc-odbl", 
+            "title": "Open Data Commons Open Database License (ODbL)", 
+            "domain_data": "True", 
+            "is_okd_compliant": true, 
+            "domain_content": "False", 
+            "url": "http://www.opendefinition.org/licenses/odc-odbl", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 86, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "simpl-2.0", 
+            "title": "Simple Public License 2.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/simpl-2.0.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 87, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ukcrown-withrights", 
+            "title": "UK Crown Copyright with data.gov.uk rights", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 88, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "artistic-license-2.0", 
+            "title": "Artistic license 2.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/artistic-license-2.0.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 89, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "other-nc", 
+            "title": "Other (Non-Commercial)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 90, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "sunpublic", 
+            "title": "Sun Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/sunpublic.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 91, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "cpal_1.0", 
+            "title": "Common Public Attribution License 1.0 (CPAL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/cpal_1.0", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 92, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "cc-zero", 
+            "title": "Creative Commons CCZero", 
+            "domain_data": "True", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opendefinition.org/licenses/cc-zero", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 93, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ibmpl", 
+            "title": "IBM Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/ibmpl.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 94, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "sybase", 
+            "title": "Sybase Open Watcom Public License 1.0", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/sybase.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 95, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "bsd-license", 
+            "title": "New and Simplified BSD licenses", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/bsd-license.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 96, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "sun-issl", 
+            "title": "Sun Industry Standards Source License (SISSL)", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 97, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "eiffel", 
+            "title": "Eiffel Forum License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 98, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "php", 
+            "title": "PHP License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/php.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 99, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "ukcrown", 
+            "title": "UK Crown Copyright", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "", 
+            "is_osi_compliant": false, 
+            "domain_software": "False"
+        }
+    }, 
+    {
+        "pk": 100, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "miros", 
+            "title": "MirOS Licence", 
+            "domain_data": "False", 
+            "is_okd_compliant": true, 
+            "domain_content": "True", 
+            "url": "http://www.opensource.org/licenses/miros.html", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 101, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "apl1.0", 
+            "title": "Adaptive Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/apl1.0.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }, 
+    {
+        "pk": 102, 
+        "model": "stack.license", 
+        "fields": {
+            "status": "active", 
+            "odc_id": "nethack", 
+            "title": "Nethack General Public License", 
+            "domain_data": "False", 
+            "is_okd_compliant": false, 
+            "domain_content": "False", 
+            "url": "http://www.opensource.org/licenses/nethack.php", 
+            "is_osi_compliant": true, 
+            "domain_software": "True"
+        }
+    }
+]
