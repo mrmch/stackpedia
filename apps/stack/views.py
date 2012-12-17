@@ -13,39 +13,13 @@ def home(request, template='stack/home.html'):
 def explore(request, template='stack/explore.html'):
     return render(request, template, {
         'page': 'explore',
+        'stacks': Stack.objects.all(),
         'licenses': License.objects.all()
     })
 
 def create(request, template='stack/create.html'):
-    stack = Stack.objects.create(name='Your Stack')
-    project = Project.objects.create(name='Your project', is_private=True, 
-            is_stack_project=True)
-    public_projects = Project.objects.filter(is_private=False)\
-            .filter(is_stack_project=False)
-
-    root = Node.add_root(project=project, stack=stack)
-    root_dump = Node.dump_bulk(parent=root)
-    nodes_dump = dumps(root_dump, cls=DjangoJSONEncoder)
-
-    temp_output = serializers.serialize('python', public_projects)
-    projects = dumps(temp_output, cls=DjangoJSONEncoder)
-
-    temp_output = serializers.serialize('python', [project])
-    project_json = dumps(temp_output, cls=DjangoJSONEncoder)
-
-    temp_output = serializers.serialize('python', [stack])
-    stack_json = dumps(temp_output, cls=DjangoJSONEncoder)
-
     return render(request, template, {
         'page': 'create', 
-        'stack': stack_json,
-        'project': project_json,
-        'root': root,
-        'nodes': root_dump,
-        'nodes_dump': nodes_dump,
-        'projects': projects,
-        'projects_raw': public_projects,
-        'link_types': LINK_CHOICES,
         'licenses': License.objects.all()
     })
 

@@ -3,34 +3,22 @@
 {% block title %}{{ block.super }} - Home{% endblock %}
 
 {% block extra_styles %}
-    .form a,
-    .inplace_editor a{
-        margin-bottom: 10px;
+
+    #explore li h3 {
+        text-align: center;
+    }
+    #explore li {
+        list-style-type: none;
+        text-align: center;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 5px rgba(0, 136, 204, .5);
+        display: inline-block;
+        cursor: pointer;
     }
 
-    .fadein {
-        opacity: 0.1;
-    }
-
-    .fadein:hover {
-        opacity: 1;
-        -webkit-transition-duration: .5s;
-        -moz-transition-duration: .5s;
-    }
-
-    .node circle {
-        stroke: steelblue;
-        stroke-width: 1.5px;
-    }
-
-    .node {
-        font: 10px sans-serif;
-    }
-
-    .link {
-        fill: none;
-        stroke: #ccc;
-        stroke-width: 1.5px;
+    #explore li:hover {
+        box-shadow: 0px 0px 5px rgba(0, 136, 204, 1);
     }
 
 {% endblock %}
@@ -40,10 +28,10 @@
         <div class="span10">
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">Viewing</a> <span class="divider">/</span>
+                    <a href="#">Exploring</a> <span class="divider">/</span>
                 </li>
                 <li class="active">
-                    {{ stack_raw.name }}
+                    All Public Stacks
                 </li>
             </ul>
         </div>
@@ -51,9 +39,17 @@
 
     <div class="row-fluid">
         <div class="span12">
-            <div id="canvas">
+            <ul id="explore">
+                {% for stack in stacks %}
+                    <li>
+                        <h3><a href="/{{ stack.pk }}">{{ stack.name }}</a></h3>
+                        <a href="http://github.com/{{ stack.head.project.github }}">
+                            github.com/{{ stack.head.project.github }}
+                        </a>
+                    </li>
 
-            </div>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 {% endblock %}
