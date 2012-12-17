@@ -78,7 +78,7 @@ def edit(request, stack_id, template='stack/edit.html'):
         'licenses': License.objects.all()
     })
 
-def preview(request, stack_id, template='stack/preview.html'):
+def share(request, stack_id, template='stack/share.html'):
     stack = Stack.objects.get(pk=stack_id)
     root = Node.objects.get(stack=stack, depth=1)
     project = root.project
@@ -97,7 +97,7 @@ def preview(request, stack_id, template='stack/preview.html'):
     stack_json = dumps(temp_output, cls=DjangoJSONEncoder)
 
     return render(request, template, {
-        'page': 'edit', 
+        'page': 'share', 
         'stack': stack_json,
         'stack_raw': stack,
         'project': project_json,

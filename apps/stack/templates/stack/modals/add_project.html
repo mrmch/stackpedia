@@ -1,0 +1,49 @@
+{% extends "stack/modals/base.html" %}
+
+{% block modal_title %}Add Project{% endblock %}
+{% block modal_id %}edit_project_modal{% endblock %}
+
+{% block modal_form %}
+    <div class="control-group">
+        <div class="controls">
+            <label class="control-label">Project name:
+                <input type="text" name="edit_project_name" id="edit_project_name" value="">
+            </label>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <label class="control-label">Github url:
+                <input type="text" name="edit_project_github" id="edit_project_github" value="">
+            </label>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <label class="control-label">Logo URL:
+                <input type="text" name="edit_project_github" id="edit_project_github" value="">
+            </label>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <label class="control-label">License:
+                <select id="edit_project_license" name="edit_project_license" multiple="multiple">
+                    {% for license in licenses %}
+                        <option value="{{ license.pk }}">
+                            {{ license.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </label>
+        </div>
+    </div>
+{% endblock %}
+
+{% block modal_save_id %}save_project{% endblock %}
+
+{% block modal_save_title %}Save Projec{% endblock %}
+

@@ -47,7 +47,16 @@ def get_stack(request, stack_id):
     except Exception as e:
         return ajax_failure(request, msg=str(e))
 
-    return ajax_success(request, data=stack, model=True)
+    return ajax_success(request, data=[stack], model=True)
+
+def get_node(request):
+    try:
+        node_id = request.GET.get('node_id')
+        node = Node.objects.get(pk=node_id)
+    except Exception as e:
+        return ajax_failure(request, msg=str(e))
+
+    return ajax_success(request, data=node.dump_bulk(parent=node))
 
 def add_dep(request):
     try:
@@ -128,14 +137,16 @@ def save_project(request):
     return ajax_success(request, data=[project], model=True)
 
 def save_node(request):
+    created = False
     try:
         project = Project.objects.get(pk=request.GET.get('project_id'))
         stack = Stack.objects.get(pk=request.GET.get('stack_id'))
         node = Node.objects.get(pk=request.GET.get('node_id'))
     except:
         try:
-           root = Node.objects.get(pk=request.GET.get('root_id'))
-           node = root.add_child(project=project, stack=stack)
+           parent = Node.objects.get(pk=request.GET.get('parent_id'))
+           node = parent.add_child(project=project, stack=stack)
+           created = True
         except Exception as e:
             return ajax_failure(request, msg=str(e))
 
@@ -147,22 +158,18 @@ def save_node(request):
     except Exception as e:
         return ajax_failure(request, msg=str(e))
 
-    try:
-        children = request.GET.getlist('children[]')
-        print children
-        for child in children:
-            child_project = Project.objects.get(pk=child)
-            child_node = node.add_child(
-                stack=stack,
-                project=child_project
-            )
-    except Exception as e:
-        return ajax_failure(request, msg=str(e))
-
     data = {
-        'node': node,
-        'nodes_dump': stack.get_node_json()
+        'created': created,
+        'node_id': node.pk
     }
 
     return ajax_success(request, data=data)
+
+def get_stack_nodes(request, stack_id):
+    try:
+        stack = Stack.objects.get(pk=stack_id)
+    except Exception as e:
+        return ajax_failure(request, msg=str(e))
+
+    return HttpResponse(stack.get_node_json())
 

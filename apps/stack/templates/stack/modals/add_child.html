@@ -1,0 +1,37 @@
+{% extends "stack/modals/base.html" %}
+
+{% block modal_id %}modal_add_dep{% endblock %}
+
+{% block modal_title %}Add Dependency{% endblock %}
+
+{% block modal_form %}
+    <div class="control-group">
+        <label class="control-label" for="node_project_select">Select Project</label>
+
+        <div class="controls">
+            <select name="node_project_select" id="node_project_select">
+                {% for project in projects_raw %}
+                    <option value="{{ project.pk }}">
+                        {{ project.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+
+
+    <div class="control-group">
+        <label class="control-label" for="addDep">Add Dependency</label>
+
+        <select name="m_a_d_link" id="m_a_d_link">
+            {% for code, name in link_types %}
+                <option value="{{ code }}">{{ name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+{% endblock %}
+
+{% block modal_save_id %}modal_add_dep_save{% endblock %}
+
+{% block modal_save_title %}Add Dependency{% endblock %}
+

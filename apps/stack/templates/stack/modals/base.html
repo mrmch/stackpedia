@@ -1,0 +1,23 @@
+<div class="modal hide fade" id="{% block modal_id %}{% endblock %}">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>{% block modal_title %}{% endblock %}</h3>
+    </div>
+
+    <div class="modal-body">
+        {% block modal_body %}
+            <div class="form">
+                {% block modal_form %}{% endblock %}
+            </div>
+
+            <div class="loading">
+                <img src="{{ STATIC_URL }}img/loading.gif">
+            </div>
+        {% endblock %}
+    </div>
+
+    <div class="modal-footer">
+        <a data-dismiss="modal" href="#" class="btn">Close</a>
+        <a id="{% block modal_save_id%}{% endblock %}" href="#" class="btn btn-primary modal-save">{% block modal_save_title %}{% endblock %}</a>
+    </div>
+</div>
