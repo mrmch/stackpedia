@@ -49,17 +49,21 @@
                             <li class="{% if page = "" %}active{% endif %}">
                                 <a href="#">home</a>
                             </li>
-                            <li class="{% if page = "about" %}active{% endif %}">
-                                <a href="#about">about</a>
-                            </li>
-                            <li class="{% if page = "explore" %}active{% endif %}">
-                                <a href="/explore">explore</a>
-                            </li>
+
                             <li class="{% if page = "create" %}active{% endif %}">
                                 <a href="#create">create</a>
                             </li>
+
+                            <li class="{% if page = "explore" %}active{% endif %}">
+                                <a href="/explore">explore</a>
+                            </li>
+
                             <li class="{% if page = "my_stacks" %}active{% endif %}">
-                                <a href="/stacks">my stacks</a>
+                                <a href="#">my stacks</a>
+                            </li>
+
+                            <li class="{% if page = "about" %}active{% endif %}">
+                                <a href="#about">about</a>
                             </li>
                         </ul>
 

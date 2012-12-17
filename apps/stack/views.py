@@ -3,7 +3,7 @@ from django.utils.simplejson import dumps
 from django.core import serializers
 from django.core.serializers.json import DjangoJSONEncoder
 
-from models import Project,Stack, Node, License, LINK_CHOICES 
+from models import Project,Stack, Node, License, LINK_CHOICES , Contributor
 
 def home(request, template='stack/home.html'):
     """default home request"""
@@ -99,6 +99,9 @@ def share(request, stack_id, template='stack/share.html'):
     temp_output = serializers.serialize('python', [stack])
     stack_json = dumps(temp_output, cls=DjangoJSONEncoder)
 
+    temp_output = serializers.serialize('python', Contributor.objects.all())
+    cont_json = dumps(temp_output, cls=DjangoJSONEncoder)
+
     width = request.GET.get('w', '')
     height = request.GET.get('h', '')
 
@@ -111,6 +114,7 @@ def share(request, stack_id, template='stack/share.html'):
         'nodes': root_dump,
         'nodes_dump': nodes_dump,
         'projects': projects,
+        'contributors': cont_json,
         'projects_raw': public_projects,
         'link_types': LINK_CHOICES,
         'licenses': License.objects.all(),

@@ -1,3 +1,6 @@
+import requests
+
+from django.utils import simplejson as json
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.simplejson import dumps
@@ -31,12 +34,15 @@ class Contributor(models.Model):
     github_id = models.CharField(max_length=255)
     avatar_url = models.URLField(max_length=500)
 
+    def __unicode__(self):
+        return self.login
+
 class Project(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=255)
-    github = models.URLField(max_length=255, null=True, blank=True)
+    github = models.CharField(max_length=255, null=True, blank=True)
     logo = models.URLField(max_length=255, null=True, blank=True)
-    license = models.ManyToManyField(License)
+    license = models.ManyToManyField(License, null=True, blank=True)
     is_private = models.BooleanField(default=False)
     is_stack_project = models.BooleanField(default=False)
     contributors = models.ManyToManyField(Contributor, related_name='projects')
@@ -46,9 +52,27 @@ class Project(models.Model):
 
     def get_contributors(self):
         if self.github != "":
-            url = 'http://api.github.com/repos/%s/collaborators' % (
+            url = 'https://api.github.com/repos/%s/collaborators' % (
                 self.github
             )
+
+            r = requests.get(url)
+
+            if r.ok:
+                collabs = json.loads(r.text or r.content)
+                for collab in collabs:
+                    try:
+                        c = Contributor.objects.get_or_create(
+                                github_id = collab['id'],
+                                login = collab['login'],
+                                avatar_url = collab['avatar_url']
+                        )
+                        c.projects.add(self)
+                        c.save()
+                        self.contributors.add(c)
+                    except:
+                        pass
+            self.save()
 
 class Stack(models.Model):
     created = models.DateTimeField(auto_now_add=True)

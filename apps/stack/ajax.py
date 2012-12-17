@@ -101,6 +101,7 @@ def create_stack(request):
             github=github,
             logo=logo,
             is_stack_project=True)
+        project.get_contributors()
         root = Node.add_root(project=project, stack=stack, is_head=True)
         stack.save()
         project.save()
@@ -127,6 +128,7 @@ def save_project(request):
         project = Project.objects.create()
 
     try:
+        project.get_contributors()
         project.name = request.GET.get('name')
         project.github = request.GET.get('github')
         project.logo = request.GET.get('logo')
