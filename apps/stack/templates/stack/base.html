@@ -47,7 +47,7 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="{% if page = "" %}active{% endif %}">
-                                <a href="#">home</a>
+                                <a href="/">home</a>
                             </li>
 
                             <li class="{% if page = "create" %}active{% endif %}">
@@ -63,7 +63,7 @@
                             </li>
 
                             <li class="{% if page = "about" %}active{% endif %}">
-                                <a href="#about">about</a>
+                                <a data-toggle="modal" data-target='#about_modal' href="#about">about</a>
                             </li>
                         </ul>
 
@@ -86,6 +86,7 @@
         </div><!--/.fluid-container-->
 
         {% include "stack/modals/create_stack.html" %}
+        {% include "stack/modals/about.html" %}
 
 
         <script src="{{ STATIC_URL }}js/json2.js"></script>

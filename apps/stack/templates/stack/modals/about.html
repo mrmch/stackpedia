@@ -1,52 +1,27 @@
 {% extends "stack/modals/base.html" %}
 
-{% block modal_id %}create_stack_modal{% endblock %}
+{% block modal_id %}about_modal{% endblock %}
 
-{% block modal_title %}Create a stack{% endblock %}
+{% block modal_title %}About stackpedia{% endblock %}
 
-{% block modal_form %}
-    <form method="get" action="{% url create %}">
-        <div class="alert alert-error"></div>
+{% block modal_body %}
+    <p>
+        <em>stackpedia</em> was built by <a href="https://twitter.com/mrmch">@mrmch</a>
+    </p>
 
-        <div class="control-group">
-            <h3>Stack Name</h3>
-            <div class="controls">
-                <input type="text" name="c_s_name" id="c_s_name" value="">
-            </div>
-        </div>
+    <p>
+        I was motivated to build this partly from a personal desire for a way
+        to visualize the software stacks I was using, as well as to attempt to 
+        give credit to the many developers behind the fantastic software I use
+        every day.
+    </p>
 
-        <div class="control-group">
-            <h4>Got github?</h4>
-            <em>Please enter ONLY <b>username/project_name</b>!</em>
-            <div class="controls">
-                <input type="text" name="c_s_github" id="c_s_github" value="" placeholder="username/project">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <h4>Add your logo</h4>
-            <div class="controls">
-                <input type="text" name="c_s_logo" id="c_s_logo" value="">
-            </div>
-        </div>
-
-        <div class="control-group">
-            <div class="controls">
-                <label class="control-label">What license(s) do you use?
-                    <select id="c_s_license" name="c_s_license" multiple="multiple">
-                        {% for license in licenses %}
-                            <option value="{{ license.pk }}">
-                                {{ license.odc_id }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                </label>
-            </div>
-        </div>
-
-    </form>
+    <p>
+        I aspire to have <em>stackpedia</em> also perform some rudimentary license
+        checks, because developers often over look open source licenses when they
+        start pulling projects from github and other social coding sites.
+    <p>
 {% endblock %}
 
-{% block modal_save_id %}create_stack{% endblock %}
+{% block modal_save_button %}{% endblock %}
 
-{% block modal_save_title %}Create Stack!{% endblock %}

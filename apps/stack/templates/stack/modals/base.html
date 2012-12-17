@@ -18,6 +18,8 @@
 
     <div class="modal-footer">
         <a data-dismiss="modal" href="#" class="btn">Close</a>
-        <a id="{% block modal_save_id%}{% endblock %}" href="#" class="btn btn-primary modal-save">{% block modal_save_title %}{% endblock %}</a>
+        {% block modal_save_button %}
+            <a id="{% block modal_save_id%}{% endblock %}" href="#" class="btn btn-primary modal-save">{% block modal_save_title %}{% endblock %}</a>
+        {% endblock %}
     </div>
 </div>
