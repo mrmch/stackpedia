@@ -91,9 +91,8 @@ def create_stack(request):
         project = Project.objects.create(name=name,
             github=github,
             logo=logo,
-            is_private=True,
             is_stack_project=True)
-        root = Node.add_root(project=project, stack=stack)
+        root = Node.add_root(project=project, stack=stack, is_head=True)
         stack.save()
         project.save()
         root.save()
@@ -149,15 +148,21 @@ def save_node(request):
         return ajax_failure(request, msg=str(e))
 
     try:
-        children = request.GET.getlist('children')
+        children = request.GET.getlist('children[]')
+        print children
         for child in children:
+            child_project = Project.objects.get(pk=child)
             child_node = node.add_child(
                 stack=stack,
-                project=child.project,
-                link_type=child.link_type
+                project=child_project
             )
     except Exception as e:
         return ajax_failure(request, msg=str(e))
 
-    return ajax_success(request, data=[node], model=True)
+    data = {
+        'node': node,
+        'nodes_dump': stack.get_node_json()
+    }
+
+    return ajax_success(request, data=data)
 

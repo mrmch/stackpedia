@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.simplejson import dumps
+from django.core import serializers
+from django.core.serializers.json import DjangoJSONEncoder
 
 from treebeard.mp_tree import MP_Node
 
@@ -33,7 +36,14 @@ class Stack(models.Model):
         return self.name
 
     def head(self):
-        pass
+        return Node.objects.get(stack=self, is_head=True)
+
+    def get_node_json(self):
+        root = self.head()
+        root_dump = Node.dump_bulk(parent=root)
+        nodes_dump = dumps(root_dump, cls=DjangoJSONEncoder)
+
+        return nodes_dump
 
 class Node(MP_Node):
     created = models.DateTimeField(auto_now_add=True)
