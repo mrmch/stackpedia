@@ -171,7 +171,8 @@
 
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#">submenu item</a>
+                            <em>Send your friends this link:</em>
+                            <a href="{{ SITE_URL }}/{{ stack_raw.pk }}">{{ SITE_URL }}/{{ stack_raw.pk }}</a>
                         </li>
                     </ul>
                 </li>
@@ -514,6 +515,7 @@
 
 {% block document_ready %}
     {{ block.super }}
+
 
     h = $(window).height();
     w = $('div.span12').width() - 200;

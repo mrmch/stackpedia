@@ -13,7 +13,15 @@ LINK_CHOICES = (
 )
 
 class License(models.Model):
-    name = models.CharField(max_length=255)
+    odc_id = models.CharField(max_length=300)
+    domain_content = models.CharField(max_length=300)
+    domain_data = models.CharField(max_length=300)
+    domain_software = models.CharField(max_length=300)
+    is_okd_compliant = models.BooleanField(default=False)
+    is_osi_compliant = models.BooleanField(default=False)
+    status = models.CharField(max_length=300)
+    title = models.CharField(max_length=300)
+    url = models.CharField(max_length=300)
 
 class Project(models.Model):
     created = models.DateTimeField(auto_now_add=True)

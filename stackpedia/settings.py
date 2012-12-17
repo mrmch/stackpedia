@@ -28,6 +28,8 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+SITE_URL = 'localhost:8000'
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = ''

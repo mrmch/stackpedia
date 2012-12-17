@@ -96,6 +96,9 @@ def share(request, stack_id, template='stack/share.html'):
     temp_output = serializers.serialize('python', [stack])
     stack_json = dumps(temp_output, cls=DjangoJSONEncoder)
 
+    width = request.GET.get('w', '')
+    height = request.GET.get('h', '')
+
     return render(request, template, {
         'page': 'share', 
         'stack': stack_json,
@@ -107,7 +110,9 @@ def share(request, stack_id, template='stack/share.html'):
         'projects': projects,
         'projects_raw': public_projects,
         'link_types': LINK_CHOICES,
-        'licenses': License.objects.all()
+        'licenses': License.objects.all(),
+        'width': width,
+        'height': height
     })
 
 def my_stacks(request, template='stack/my_stacks.html'):

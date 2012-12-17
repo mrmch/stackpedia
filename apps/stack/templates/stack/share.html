@@ -3,10 +3,6 @@
 {% block title %}{{ block.super }} - Home{% endblock %}
 
 {% block extra_styles %}
-    #eDependencies ul {
-        list-style-type: none;
-    }
-
     .form a,
     .inplace_editor a{
         margin-bottom: 10px;
@@ -37,96 +33,6 @@
         stroke-width: 1.5px;
     }
 
-    #base_editor {
-        display: none;
-    }
-
-    #editor ul {
-        margin-left: 0;
-    }
-
-    #editor li {
-        font-size: 12pt;
-        list-style-type: none;
-        padding-left: 20px;
-    }
-
-    #editor li li {
-        border-left: 5px solid rgba(0,0,0,.05);
-    }
-
-    #editor li li li {
-        border-left: 5px solid rgba(0,0,0,.10);
-    }
-
-    #editor li li li li {
-        border-left: 5px solid rgba(0,0,0,.15);
-    }
-
-    #editor li li li li {
-        border-left: 5px solid rgba(0,0,0,.20);
-    }
-    
-    #editor li li li li {
-        border-left: 5px solid rgba(0,0,0,.25);
-    }
-
-    #editor li li li li li {
-        border-left: 5px solid rgba(0,0,0,.30);
-    }
-
-    #editor li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.35);
-    }
-
-    #editor li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.40);
-    }
-
-    #editor li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.45);
-    }
-
-    #editor li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.50);
-    }
-    
-    #editor li li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.55);
-    }
-    
-    #editor li li li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.60);
-    }
-
-    #editor li li li li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.65);
-    }
-
-    #editor li li li li li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.70);
-    }
-
-    #editor li li li li li li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.75);
-    }
-
-    #editor li li li li li li li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.80);
-    }
-
-    #editor li li li li li li li li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.85);
-    }
-
-    #editor li li li li li li li li li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.90);
-    }
-
-    #editor li li li li li li li li li li li li li li li li li li {
-        border-left: 5px solid rgba(0,0,0,.95);
-    }
-
 {% endblock %}
 
 {% block content %}
@@ -134,7 +40,7 @@
         <div class="span10">
             <ul class="breadcrumb">
                 <li>
-                    <a href="#">Edit</a> <span class="divider">/</span>
+                    <a href="#">Viewing</a> <span class="divider">/</span>
                 </li>
                 <li class="active">
                     {{ stack_raw.name }}
@@ -145,72 +51,11 @@
 
     <div class="row-fluid">
         <div class="span12">
-            <ul class="nav nav-pills">
-                <li>
-                    <a href="#save">Save</a>
-                </li>
-                
-                <li>
-                    <a href="#preview">Preview</a>
-                </li>
-
-                <li>
-                    <a href="#edit">Edit</a>
-                </li>
-                
-                <li>
-                    <a href="#addProject">Add Project</a>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#"
-                        data-toggle="dropdown"
-                        class="dropdown-toggle"
-                        >Share <b class="caret"></b>
-                    </a>
-
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">submenu item</a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="span9">
-            <ul id="editor"></ul>
-
-            <ul id="base_editor">
-                <li class="template">
-                    <span class="name"></span> (<span class="link"></span>)
-                    <span class="pull-right">
-                        <span class="fadein">
-                            <a href="#" class="add-child">Add dependency</a>
-                        </span>
-
-                        <a href="#" class="expand">
-                            <i class="icon icon-minus"> </i>
-                        </a>
-                    </span>
-
-                    <ul class="children">
-                    </ul>
-                </li>
-            </ul>
-
-        </div>
-
-        <div class="span9">
             <div id="canvas">
 
             </div>
         </div>
     </div>
-
-    {% include "stack/modals/add_project.html" %}
-    {% include "stack/modals/add_child.html" %}
-
 {% endblock %}
 
 {% block extra_js %}
@@ -240,189 +85,6 @@
         return l.length > 0 ? l[0] : null;
     };
 
-    var open_edit_modal = function (node, i) {
-        var temp;
-        if (node.data.project == project.pk) {
-            // this is the head "stack node"
-            temp = project;
-        } else {
-            var temp = get_project(node.data.project);
-        }
-
-        console.log('opening edit modal for node', node);
-
-        // populate the projects select
-        $('#node_project_select').empty();
-
-        $.each(projects, function (i, o) {
-            var el = $(document.createElement('option')), copy;
-            el.val(o.pk);
-            el.text(o.fields.name);
-            copy = el.clone();
-            
-            if (o.pk == node.data.project) {
-                el.attr('selected', 'selected');
-            }
-
-            $('#node_project_select').append(el);
-            $('#node_dep_select').append(copy);
-        });
-
-
-        var dep_list = $('#eDependencies ul');
-        dep_list.empty();
-
-        if ('children' in node) {
-            $.each(node.children, function (i, d) {
-                append_dep(dep_list, d);
-            });
-        }
-
-        var modal = $('#edit_modal');
-        modal.find('div.form').show();
-        modal.find('div.loading').hide();
-        modal.data('project', node.data.project)
-            .data('node', node.id)
-            .data('node_index', i)
-            .modal('show');
-    };
-
-    var open_edit_project_modal = function (p_id) {
-        // open the project edit modal, with default data if we are creating
-        // a new project
-        if (typeof p_id === 'undefined') p_id = 0;
-        var proj;
-
-        if (p_id === 0) {
-            // new project, create a stub
-            proj = {
-                "pk": 0,
-                "fields": {
-                    "name": "New Project",
-                    "github": "",
-                    "logo": "",
-                    "license": [],
-                    "is_private": false,
-                    "is_stack_project": false
-                }
-            };
-        } else {
-            proj = projects.filter(function(p) { return p.pk == p_id; })[0];
-        }
-
-        $("input[name='edit_project_name']").val(proj.fields.name);
-        $("input[name='edit_project_github']").val(proj.fields.github);
-        $("input[name='edit_project_logo']").val(proj.fields.logo);
-
-        $('#edit_project_license option').removeAttr('selected');
-        $.each(proj.fields.license, function (o, i) {
-            $('#edit_project_license option[value=' + o + ']').attr('selected', 'selected');
-        });
-
-        $('#edit_project_modal div.form').show();
-        $('#edit_project_modal div.loading').hide();
-
-        $('#edit_project_modal')
-            .data('project', p_id)
-            .modal('show');
-    };
-
-    var open_add_dep_modal = function (parent) {
-        var modal = $('#modal_add_dep');
-        modal.data('parent', parent);
-        modal.find('.loading').hide();
-        modal.modal('show');
-    };
-
-    var save_project_modal = function () {
-        var modal = $('#edit_project_modal');
-        var data = {
-            "project_id": modal.data('project'),
-            "name": $("input[name='edit_project_name']").val(), 
-            "github": $("input[name='edit_project_github']").val(), 
-            "logo": $("input[name='edit_project_logo']").val(), 
-            "license": $('#edit_project_license option').val() 
-        };
-
-        modal.find('div.form').fadeOut('fast', function () {
-            modal.find('div.loading').slideDown('fast');
-        });
-
-        $.getJSON('{% url ajax-save-project %}', data, function (response) {
-            if ('pk' in response[0]) {
-                // save the project back to local store
-                var response_project = response[0];
-                var local = get_project(response_project.pk),
-                    index = projects.indexOf(local);
-
-                if (index == -1) {
-                    projects.push(response_project);
-                } else {
-                    projects[index] = response_project;
-                }
-            } else {
-                console.log('error', response);
-            }
-
-            modal.modal('hide');
-        });
-    };
-
-    var save_node_modal = function () {
-        var modal = $('#edit_modal');
-        var children = [];
-
-        $.each(modal.find('#eDependencies li'), function (i, o) {
-            children.push($(o).data('project'));
-        });
-
-        var data = {
-            "node_id": modal.data('node'),
-            "root_id": root_id,
-            "project_id": modal.find('select[name=node_project_select]').val(),
-            "stack_id": stack.pk,
-            "children": children
-        };
-
-        modal.find('div.form').fadeOut('fast', function () {
-            modal.find('div.loading').slideDown('fast');
-        });
-
-        $.getJSON('{% url ajax-save-node %}', data, function (response) {
-            if ('pk' in response[0]) {
-                // save the project back to local store
-                var response_project = response[0];
-                var local = get_project(response_project.pk),
-                    index = projects.indexOf(local);
-
-                console.log('node index', local, index);
-
-                if (index == -1) {
-                    projects.push(response_project);
-                    console.log('pushed response', response_project);
-                } else {
-                    projects[index] = response_project;
-                    console.log('replaced', response_project);
-                }
-            } else {
-                console.log('error', response);
-            }
-
-            modal.modal('hide');
-        });
-    };
-
-    var append_dep = function (list, dep) {
-        var li = $(document.createElement('li')), html = '';
-        html = '<a href="#" class="removeDep"><i class="icon icon-remove"></i></a> ' + dep.project.fields.name + '(<em>' + dep.link_type + '</em>)';
-
-        li.data('project', dep.project.pk);
-        li.data('link_type', dep.link_type);
-        li.html(html);
-        list.append(li);
-    };
-
-
     var node_name = function (d) {
         var p = get_project(d.data.project);
         return (p != null ? p.fields.name : "Untitled Project");
@@ -434,35 +96,6 @@
         } else {
             return 'teal';
         }
-    };
-
-    var add_children = function (parent_el, child, template) {
-        var el = template.clone(),
-            clean = template.clone(),
-            children = el.find('.children').first(),
-            proj = get_project(child.data.project);
-
-        el.find('.name')
-            .html(proj.fields.name)
-            .data('project', child.data.project);
-
-        el.find('.link').html(child.data.link_type);
-        el.data('node', child.id);
-
-        if (child.data.is_head) {
-            el.addClass('is_head');
-            el.find('.link').hide();
-        } else {
-            el.addClass('is_child');
-        }
-
-        if ('children' in child) {
-            $.each(child.children, function (i, o) {
-                add_children(children, o, clean);
-            });
-        }
-
-        parent_el.prepend(el);
     };
 
     var show_preview = function () {
@@ -505,6 +138,7 @@
 
         node.append('text')
             .attr('dx', function(d) {
+                return -25;
                 return d.children ? -8 : 8; 
             })
             .attr('dy', 3)
@@ -515,175 +149,18 @@
 {% block document_ready %}
     {{ block.super }}
 
-    h = $(window).height();
-    w = $('div.span12').width() - 200;
+    if ('{{ width }}' != '') {
+        w = '{{ width }}';
+    } else {
+        w = $('div.span12').width() - 200;
+    }
 
-    template = $('li.template').clone().removeClass('template');
-    var ed = $('#editor').empty();
-    $.each([nodes_data], function (i, o) {
-        add_children(ed, o, template);
-    });
+    if ('{{ height }}' != '') {
+        h = '{{ height }}';
+    } else {
+        h = $(window).height();
+    }
 
-
-    // jquery binds
-    $('#eAddDep').click(function () {
-        var dep_list = $('#eDependencies ul');
-        var project = get_project($('#node_dep_select').val());
-        var dep = {
-            "project": project,
-            "link_type": $('#addDepLinkType').val()
-        };
-
-        append_dep(dep_list, dep); 
-    });
-
-    $('.removeDep').live('click', function () {
-        var project = $('#edit_modal').data('project');
-        $(this).parent('li').fadeOut('fast');
-    });
-
-    $('a[href="#addProject"]').click(function () {
-        open_edit_project_modal();
-    });
-
-    $('a[href="#preview"]').click(function () {
-        $('#editor').slideUp('fast', function () {
-            $.getJSON('{% url ajax-get-stack-nodes stack_raw.pk %}', function (resp) {
-                if ('success' in resp) {
-                    //failure
-                    console.log('get stack', resp);
-                } else {
-                    nodes_data = resp[0];
-                    show_preview();
-                    $('#canvas').slideDown('fast');
-                }
-            });
-        });
-    });
-
-    $('a[href="#edit"]').click(function () {
-        $('#canvas').slideUp('fast', function () {
-            $('#editor').slideDown('fast');
-        });
-    });
-
-    $('#edit_save').click(function () {
-        save_node_modal();
-    });
-
-    $('#save_project').click(function () {
-        save_project_modal();
-    });
-
-    $('#editor').on('click', '.is_child .name', function () {
-        var el = $(this),
-            project = el.data('project')
-            replace = $(document.createElement('pan')),
-            select = $('#node_project_select').clone();
-
-        replace.data("project", project)
-            .addClass('inplace_editor')
-            .append(select)
-            .append('<a href="#" class="btn btn-small inplace_save">Save</a>')
-            .append('<a href="#" class="inplace_cancel">Cancel</a>');
-        el.replaceWith(replace);
-    });
-
-    $('#editor').on('click', '.is_child .inplace_save', function () {
-        var replace = $(document.createElement('span')),
-            el = $(this),
-            old_project = $(el).data('project'),
-            parent = $(el).parents('li').first().parents('li').first(),
-            node = $(el).parents('li').first().data('node'),
-            project = el.siblings('select').val(),
-            project = get_project(project);
-
-
-        if (parent) {
-            parent_id = parent.data('node');
-        } else {
-            parent_id = root_id;
-        }
-
-        $.getJSON('{% url ajax-save-node %}', {
-                "node_id": node,
-                "project_id": project.pk,
-                "stack_id": stack.pk,
-                "parent_id": parent_id
-            }, function (resp) {
-                if (resp.success) {
-                    replace.data('project', project.pk)
-                        .html(project.fields.name)
-                        .addClass('name');
-
-                    el.parent().replaceWith(replace);
-                } else {
-                
-                }
-        });
-    });
-
-    $('#editor').on('click', '.inplace_cancel', function () {
-        var replace = $(document.createElement('span')),
-            el = $(this),
-            project = el.parent().data('project'),
-            project = get_project(project);
-
-        replace.data('project', project.pk)
-            .html(project.fields.name)
-            .addClass('name');
-
-        el.parent().replaceWith(replace);
-    });
-
-    $('#editor').on('click', '.add-child', function () {
-        var parent = $(this).parents('li').first();
-        open_add_dep_modal(parent.data('node'));
-    });
-
-    $('#modal_add_dep_save').click(function () {
-        var modal = $('#modal_add_dep'),
-            parent_id = modal.data('parent'),
-            parent = $(get_node_li(parent_id)).find('ul').first();
-
-        $.getJSON('{% url ajax-save-node %}', {
-                "node_id": 0,
-                "project_id": $('#node_project_select').val(),
-                "stack_id": stack.pk,
-                "parent_id": parent_id
-            }, function (resp) {
-                if (resp.success) {
-                    $.getJSON('{% url ajax-get-node %}', {
-                            "node_id": resp.data.node_id
-                        }, function (resp) {
-                            console.log('adding child', parent, resp);
-                            add_children(parent, resp.data[0], template);
-                    });
-                } else {
-                    console.log('add dep error', resp.msg);
-                }
-
-                modal.modal('hide');
-            }
-        );
-    });
-
-    $('#editor').on('click', '.expand', function () {
-        var el = $(this),
-            children = el.parents('li').first().children('ul').first(),
-            icon = el.find('i');
-
-        if (icon.hasClass('icon-minus')) {
-            icon.removeClass('icon-minus')
-                .addClass('icon-plus');
-            children.slideUp('fast');
-        } else {
-            icon.removeClass('icon-plus')
-                .addClass('icon-minus');
-            children.slideDown('fast');
-        }
-    });
-
-
+    show_preview();
 {% endblock %}
 

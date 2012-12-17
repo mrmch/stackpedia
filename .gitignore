@@ -36,3 +36,6 @@ nosetests.xml
 *.swp
 *.db
 *.swo
+initial_data.json
+local_settings.json
+
